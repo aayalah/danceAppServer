@@ -1,0 +1,1 @@
+var graphQL = require('graphql');

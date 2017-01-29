@@ -1,0 +1,24 @@
+{
+  "development": {
+    "username": "alejandroayala-hurtado",
+    "password": "postgres",
+    "database": "dancedb",
+    "host": "localhost",
+    "port": "5432",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "alejandroayala-hurtado",
+    "password": "postgres",
+    "database": "danceDb",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "alejandroayala-hurtado",
+    "password": "postgres",
+    "database": "danceDb",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}
