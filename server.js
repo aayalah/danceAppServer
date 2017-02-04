@@ -36,8 +36,8 @@ router.route('/videos')
     .post(authController.isAuthenticated, videoController.postVideo)
     .get(authController.isAuthenticated, videoController.getVideos)
 
-//router.route('/videos/:user')
-  //  .get(authController.isAuthenticated, videoController.getUserVideos)
+router.route('/videos/:user')
+    .get(authController.isAuthenticated, videoController.getUserVideos)
 
 router.route('/videos/:category')
   .get(authController.isAuthenticated, videoController.getVideoCategory)
@@ -54,5 +54,5 @@ router.route('/category')
 
 app.use('/api', router);
 
-var PORT = process.ENV_PORT || 8030
+var PORT = process.ENV_PORT || 8090
 app.listen(PORT, () => console.log("Listening on port ${PORT}"));
