@@ -9,6 +9,8 @@ module.exports = function(sequelize, DataTypes) {
     classMethods: {
       associate: function(models) {
         Video.belongsToMany(models.category, {through: 'videocategory'});
+        Video.hasMany(models.comments, {as: 'comment'});
+        Video.belongsTo(models.user);
       }
     }
   });

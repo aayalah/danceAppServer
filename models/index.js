@@ -30,7 +30,7 @@ Object.keys(db).forEach(function(modelName) {
   }
 });
 
-
+//sequelize.drop();
 sequelize.sync();
 
 db.sequelize = sequelize;
