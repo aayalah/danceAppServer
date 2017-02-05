@@ -4,7 +4,7 @@
   "description": "Server for dance app",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
   },
   "author": "Alejandro Ayala-Hurtado",
   "license": "ISC",
