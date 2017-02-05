@@ -58,4 +58,4 @@ var server_port = process.env.YOUR_PORT || process.env.PORT || 80;
 var server_host = process.env.YOUR_HOST || '0.0.0.0';
 
 var PORT = process.ENV_PORT || 8090
-app.listen(servor_port, server_host, () => console.log("Listening on port" + PORT));
+app.listen(server_port, server_host, () => console.log("Listening on port" + PORT));
