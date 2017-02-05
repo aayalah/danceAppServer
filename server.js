@@ -39,7 +39,7 @@ router.route('/videos')
 router.route('/videos/:user')
     .get(authController.isAuthenticated, videoController.getUserVideos)
 
-router.route('/videos/:category')
+router.route('/category/:category/videos')
   .get(authController.isAuthenticated, videoController.getVideoCategory)
 
 router.route('/videos/:video/incrementView')

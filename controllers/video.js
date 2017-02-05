@@ -3,22 +3,20 @@ var models = require('../models/index');
 
 // Create endpoint /api/users for POST
 exports.postVideo = function(req, res) {
-
+  console.log(req.body.file);
   var cat = req.body.categories;
   models.video.create({
      uri: req.body.uri,
      title: req.body.title,
      description: req.body.description
    }).then(function(video) {
-     console.log(req.user);
      req.user.addVideo(video);
      video.setUser(req.user);
-
      for(i = 0; i < cat.length; i++){
        models.category.findOrCreate({where:{title: cat[i]}, default:{title: cat[i]}})
        .then(function(category) {
-         return video.setCategories(category[0]);
-       }).error(function(err){
+         video.addCategory(category[0]);
+       }).catch(function(err){
          res.send(err);
        });
      }

@@ -23,7 +23,7 @@ exports.postComment = function(req, res) {
 // Create endpoint /api/users for GET
 exports.getComments = function(req, res) {
 
-  models.comments.findAll({where: {id: req.params.video}, order: [['createdAt', 'ASC']],include: [{
+  models.comments.findAll({where: {videoId: req.params.video}, order: [['createdAt', 'ASC']],include: [{
       model: models.user
     }]}).then(function(comments) {
     res.json(comments);
