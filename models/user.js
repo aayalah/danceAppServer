@@ -22,7 +22,7 @@ module.exports = function(sequelize, DataTypes) {
         console.log(password);
         console.log(this.password);
 
-        scrypt.verifyKdf(this.password,password).then(function(res) {
+        scrypt.verifyKdf(new Buffer(this.password, "base64"),new Buffer(password)).then(function(res) {
           cb(null, res);
         }).catch(function(err) {
           cb(err,false);
@@ -36,7 +36,7 @@ module.exports = function(sequelize, DataTypes) {
     //var user = this;
     var scryptParameters = scrypt.paramsSync(0.1);
     return scrypt.kdf(user.password, scryptParameters).then(function(hash) {
-      user.password = hash;
+      user.password = hash.toString('base64');
     });
 
   })
