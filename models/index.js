@@ -9,7 +9,6 @@ var config    = require(__dirname + '/../config/config.json')[env];
 var db        = {};
 
 if (process.env.DATABASE_URL) {
-    console.log("process.env.DATABASE_URL");
     // the application is executed on Heroku ... use the postgres database
     var sequelize = new Sequelize(process.env.DATABASE_URL, {
       dialect:  'postgres',

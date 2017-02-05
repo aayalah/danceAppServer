@@ -55,4 +55,4 @@ router.route('/category')
 app.use('/api', router);
 
 var PORT = process.ENV_PORT || 8090
-app.listen(PORT, () => console.log("Listening on port ${PORT}"));
+app.listen(PORT, () => console.log("Listening on port" + PORT));
