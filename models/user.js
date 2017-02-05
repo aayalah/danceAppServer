@@ -1,5 +1,7 @@
 'use strict';
-var bcrypt = require('bcrypt-promise');//require('bcrypt-nodejs');
+//var bcrypt = require('bcrypt-promise');//require('bcrypt-nodejs');
+var scrypt = require("scrypt");
+
 
 module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define('user', {
@@ -20,8 +22,10 @@ module.exports = function(sequelize, DataTypes) {
         console.log(password);
         console.log(this.password);
 
-        bcrypt.compare(password, this.password).then(function(res) {
+        scrypt.verifyKdf(this.password,password).then(function(res) {
           cb(null, res);
+        }).catch(function(err) {
+          cb(err,false);
         });
 
       }
@@ -30,8 +34,8 @@ module.exports = function(sequelize, DataTypes) {
 
   User.beforeCreate(function(user) {
     //var user = this;
-
-    return bcrypt.hash(user.password, 5).then(function(hash) {
+    var scryptParameters = scrypt.paramsSync(0.1);
+    return scrypt.kdf(user.password, scryptParameters).then(function(hash) {
       user.password = hash;
     });
 

@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Server for dance app",
   "main": "server.js",
-  "scripts": {"start" : "node server.js"},
+  "scripts": {
+    "start": "node server.js"
+  },
   "author": "Alejandro Ayala-Hurtado",
   "license": "ISC",
   "dependencies": {
@@ -19,6 +21,7 @@
     "passport-http": "^0.3.0",
     "pg": "^6.1.2",
     "pg-hstore": "^2.3.2",
+    "scrypt": "^6.0.3",
     "sequelize": "^3.29.0",
     "sequelize-cli": "^2.5.1"
   },
