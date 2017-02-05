@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Server for dance app",
   "main": "server.js",
-  "scripts": {"start" : "node server.js", "postinstall": "npm install"},
+  "scripts": {"start" : "node server.js"},
   "author": "Alejandro Ayala-Hurtado",
   "license": "ISC",
   "dependencies": {
